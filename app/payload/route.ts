@@ -1,7 +1,9 @@
-import { serve } from '@payloadcms/next-payload';
+import { getHandler } from 'payload/config';
+import { NextRequest } from 'next/server';
 
-export const GET = serve;
-export const POST = serve;
-export const PUT = serve;
-export const PATCH = serve;
-export const DELETE = serve;
+export { getHandler as GET, getHandler as POST, getHandler as PUT, getHandler as PATCH, getHandler as DELETE };
+
+export async function POST(request: NextRequest) {
+  const handler = getHandler();
+  return handler(request);
+}
