@@ -1,4 +1,4 @@
-import { getHandler } from 'payload/config';
+import { getHandler } from 'payload';
 
 export const GET = getHandler;
 export const POST = getHandler;
