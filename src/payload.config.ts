@@ -1,35 +1,25 @@
-import { buildConfig } from 'payload';
-import { postgresAdapter } from '@payloadcms/db-postgres';
+// src/payload.config.ts
+import { buildConfig } from 'payload/config'
 
 export default buildConfig({
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URI,
-    },
-  }),
   collections: [
     {
-      slug: 'pages',
+      slug: 'users',
       fields: [
-        { name: 'title', type: 'text', required: true },
-        { name: 'content', type: 'richText', required: true },
-      ],
-    },
-    {
-      slug: 'settings',
-      fields: [
-        { name: 'siteName', type: 'text', required: true },
-        { name: 'theme', type: 'text' },
+        {
+          name: 'email',
+          type: 'email',
+          required: true,
+        },
       ],
     },
   ],
-  secret: process.env.PAYLOAD_SECRET,
+  secret: process.env.PAYLOAD_SECRET || 'fallback-secret-key-123',
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
   admin: {
     autoLogin: {
       email: 'admin@example.com',
-      password: 'test',
-      prefillOnly: true,
-    },
+      password: 'admin123',
+    }
   },
-});
+})
