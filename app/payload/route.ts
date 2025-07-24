@@ -1,16 +1,9 @@
-// app/payload/route.ts
-import { NextRequest } from 'next/server'
+// app/payload/[[...slug]]/route.ts
+import { getPayload } from 'payload'
+import config from '../../../payload.config'
 
-// Простий роут без PayloadCMS поки що
-export async function GET(request: NextRequest) {
-  return new Response('Payload Admin Panel', {
-    status: 200,
-    headers: {
-      'Content-Type': 'text/html',
-    },
-  })
-}
+const payload = await getPayload({ config })
 
-export async function POST(request: NextRequest) {
-  return new Response('POST request', { status: 200 })
+export async function GET() {
+  // ваша логіка
 }
