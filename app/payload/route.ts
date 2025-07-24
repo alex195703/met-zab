@@ -1,4 +1,4 @@
-import { getHandler } from '@payloadcms/next';
+import { getHandler } from '@payloadcms/next/handlers';
 
 export const GET = getHandler;
 export const POST = getHandler;
