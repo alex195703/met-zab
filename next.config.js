@@ -9,7 +9,7 @@ const nextConfig = {
     return config;
   },
   experimental: {
-    serverComponentsExternalPackages: ['payload', '@payloadcms/next'],
+    serverComponentsExternalPackages: ['payload', '@payloadcms/next', '@payloadcms/db-postgres'],
   },
 };
 
