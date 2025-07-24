@@ -1,68 +1,33 @@
-import { buildConfig } from 'payload/config';
-import path from 'path';
+import { buildConfig } from 'payload';
+import { mongooseAdapter } from '@payloadcms/db-mongodb';
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
-  admin: {
-    user: 'users',
-  },
+  db: mongooseAdapter({
+    url: process.env.MONGODB_URI,
+  }),
   collections: [
     {
-      slug: 'lectures',
-      labels: { singular: 'Лекція', plural: 'Лекції' },
+      slug: 'pages',
       fields: [
-        {
-          name: 'title',
-          type: 'text',
-          label: 'Назва лекції',
-          required: true,
-        },
-        {
-          name: 'content',
-          type: 'richText',
-          label: 'Текст лекції',
-        },
-        {
-          name: 'order',
-          type: 'number',
-          label: 'Порядок відображення',
-          defaultValue: 1,
-        },
+        { name: 'title', type: 'text', required: true },
+        { name: 'content', type: 'richText', required: true },
       ],
     },
     {
-      slug: 'pages',
-      labels: { singular: 'Сторінка', plural: 'Сторінки' },
+      slug: 'settings',
       fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'slug',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'content',
-          type: 'richText',
-          required: true,
-        },
+        { name: 'siteName', type: 'text', required: true },
+        { name: 'theme', type: 'text' },
       ],
     },
   ],
-  typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
-  },
-  db: {
-    type: 'mongoose',
-    url: process.env.MONGODB_URL || 'mongodb://localhost/payload',
-  },
-  email: {
-    transportOptions: {
-      host: 'localhost',
-      port: 25,
+  secret: process.env.PAYLOAD_SECRET,
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
+  admin: {
+    autoLogin: {
+      email: 'admin@example.com',
+      password: 'test',
+      prefillOnly: true,
     },
   },
 });
