@@ -11,7 +11,7 @@ export default buildConfig({
     },
   }),
   
-  // Редактор (замість старого slate)
+  // Сучасний Lexical редактор
   editor: lexicalEditor({}),
   
   // Налаштування адмін панелі
