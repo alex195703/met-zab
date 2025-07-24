@@ -1,9 +1,11 @@
 import { buildConfig } from 'payload';
-import { mongooseAdapter } from '@payloadcms/db-mongodb';
+import { postgresAdapter } from '@payloadcms/db-postgres';
 
 export default buildConfig({
-  db: mongooseAdapter({
-    url: process.env.MONGODB_URI,
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI,
+    },
   }),
   collections: [
     {
