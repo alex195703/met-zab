@@ -1,7 +1,6 @@
 // src/payload.config.ts
 import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
 export default buildConfig({
   // База даних з вашим реальним connection string
@@ -10,9 +9,6 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || 'postgresql://70b9fcfc5e1f018378ef4868ac484ae25b8892a4aaa3e634332e6313f6c64dd0:sk_tKqIkG9IL5_8zraSpR4JO@db.prisma.io:5432/main?sslmode=require',
     },
   }),
-  
-  // Сучасний Lexical редактор
-  editor: lexicalEditor({}),
   
   // Налаштування адмін панелі
   admin: {
