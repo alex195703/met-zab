@@ -1,3 +1,4 @@
+
 import { getHandler } from '@payloadcms/next/handlers';
 
 export const GET = getHandler;
