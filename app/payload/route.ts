@@ -1,4 +1,4 @@
-import { getPayloadHMR } from '@payloadcms/next';
+import { getPayload } from '@payloadcms/next/payload';
 
-export const GET = getPayloadHMR;
-export const POST = getPayloadHMR;
+export const GET = getPayload;
+export const POST = getPayload;
