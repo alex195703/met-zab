@@ -1,11 +1,16 @@
-// app/payload/[[...slug]]/route.ts
-import { getPayloadHandler } from '@payloadcms/next'
-import config from '../../../payload.config'
+// app/payload/route.ts
+import { NextRequest } from 'next/server'
 
-const handler = getPayloadHandler({ config })
+// Простий роут без PayloadCMS поки що
+export async function GET(request: NextRequest) {
+  return new Response('Payload Admin Panel', {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/html',
+    },
+  })
+}
 
-export const GET = handler
-export const POST = handler
-export const PUT = handler
-export const DELETE = handler
-export const PATCH = handler
+export async function POST(request: NextRequest) {
+  return new Response('POST request', { status: 200 })
+}
