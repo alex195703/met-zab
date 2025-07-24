@@ -8,9 +8,7 @@ const nextConfig = {
     );
     return config;
   },
-  experimental: {
-    serverComponentsExternalPackages: ['payload', '@payloadcms/next', '@payloadcms/db-postgres'],
-  },
+  serverExternalPackages: ['payload', '@payloadcms/next', '@payloadcms/db-postgres'],
 };
 
 import { withPayload } from '@payloadcms/next/withPayload';
