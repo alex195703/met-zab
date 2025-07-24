@@ -1,8 +1,4 @@
+import { getPayloadHMR } from '@payloadcms/next';
 
-import { getHandler } from '@payloadcms/next/handlers';
-
-export const GET = getHandler;
-export const POST = getHandler;
-export const PUT = getHandler;
-export const PATCH = getHandler;
-export const DELETE = getHandler;
+export const GET = getPayloadHMR;
+export const POST = getPayloadHMR;
