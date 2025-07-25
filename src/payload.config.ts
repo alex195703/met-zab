@@ -1,8 +1,9 @@
-// src/payload.config.ts
 import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 
 export default buildConfig({
+  // Додано: serverURL для базового URL сервера
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'https://met-zab-git-main-alexs-projects-82e4c164.vercel.app',
   // База даних з вашим реальним connection string
   db: postgresAdapter({
     pool: {
@@ -15,8 +16,12 @@ export default buildConfig({
     user: 'users', // колекція користувачів
     meta: {
       titleSuffix: '- Admin Panel',
-      // Видаляємо favicon - це більше не підтримується в нових версіях
     },
+  },
+  
+  // Додано: routes для явного визначення маршруту /admin
+  routes: {
+    admin: '/admin',
   },
   
   // Колекції
@@ -83,6 +88,6 @@ export default buildConfig({
     outputFile: 'payload-types.ts',
   },
   
-  // Ваш реальний секретний ключ
-  secret: process.env.PAYLOAD_SECRET || 'x7k9m3p8q2w5z1t4r6y0u2i8o4p7a9s3',
+  // Змінено: Використовуємо змінну середовища з non-null assertion
+  secret: process.env.PAYLOAD_SECRET!,
 })
