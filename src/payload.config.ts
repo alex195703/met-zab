@@ -15,7 +15,7 @@ export default buildConfig({
     user: 'users', // колекція користувачів
     meta: {
       titleSuffix: '- Admin Panel',
-      favicon: '/favicon.ico',
+      // Видаляємо favicon - це більше не підтримується в нових версіях
     },
   },
   
