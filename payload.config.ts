@@ -2,29 +2,26 @@ import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 
 export default buildConfig({
-  // Додано: serverURL для базового URL сервера
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'https://met-zab-git-main-alexs-projects-82e4c164.vercel.app',
-  // База даних з вашим реальним connection string
+  
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || 'postgresql://70b9fcfc5e1f018378ef4868ac484ae25b8892a4aaa3e634332e6313f6c64dd0:sk_tKqIkG9IL5_8zraSpR4JO@db.prisma.io:5432/main?sslmode=require',
     },
   }),
   
-  // Налаштування адмін панелі
   admin: {
-    user: 'users', // колекція користувачів
+    user: 'users',
     meta: {
       titleSuffix: '- Admin Panel',
     },
   },
   
-  // Додано: routes для явного визначення маршруту /admin
+  // ЗМІНЕНО: використовуємо /cms замість /admin щоб уникнути конфлікту з Vercel
   routes: {
-    admin: '/admin',
+    admin: '/cms',
   },
   
-  // Колекції
   collections: [
     {
       slug: 'users',
@@ -65,7 +62,6 @@ export default buildConfig({
     },
   ],
   
-  // Глобальні налаштування
   globals: [
     {
       slug: 'settings',
@@ -83,11 +79,9 @@ export default buildConfig({
     },
   ],
   
-  // Налаштування TypeScript
   typescript: {
     outputFile: 'payload-types.ts',
   },
   
-  // Змінено: Використовуємо змінну середовища з non-null assertion
   secret: process.env.PAYLOAD_SECRET!,
 })
