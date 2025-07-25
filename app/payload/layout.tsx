@@ -1,34 +1,34 @@
-import { notFound } from 'next/navigation';
-import config from '../../../src/payload.config';
-import { getPayloadHMR } from '@payloadcms/next/utilities';
-import { Payload } from 'payload';
+// app/payload/layout.tsx
+import { Metadata } from 'next'
 
-export default async function AdminLayout() {
-  let payload: Payload;
+export const metadata: Metadata = {
+  title: 'Admin Panel',
+  description: 'Administration panel for the website',
+}
 
-  try {
-    payload = await getPayloadHMR({
-      config,
-    });
-  } catch (error) {
-    return notFound();
-  }
-
-  // Отримуємо URL адмін-панелі
-  const adminURL = `${process.env.NEXT_PUBLIC_SERVER_URL}/admin`;
-
+export default function PayloadLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <body>
-        <iframe
-          src={adminURL}
-          style={{
-            border: 'none',
-            width: '100%',
-            height: '100vh',
-          }}
-        />
+        <div style={{ 
+          minHeight: '100vh', 
+          padding: '20px',
+          fontFamily: 'Arial, sans-serif'
+        }}>
+          <header style={{ 
+            borderBottom: '1px solid #ccc', 
+            paddingBottom: '10px', 
+            marginBottom: '20px' 
+          }}>
+            <h1>Admin Panel</h1>
+          </header>
+          <main>{children}</main>
+        </div>
       </body>
     </html>
-  );
+  )
 }
