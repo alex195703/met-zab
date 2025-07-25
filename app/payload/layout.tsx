@@ -1,10 +1,7 @@
-/* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
 import type { Metadata } from 'next'
-
 import { RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
 import './custom.scss'
-
 import { importMap } from './admin/importMap.js'
 import config from '../../src/payload.config'
 
@@ -13,7 +10,11 @@ type Args = {
 }
 
 const Layout = ({ children }: Args): React.ReactElement => (
-  <RootLayout config={config} importMap={importMap}>
+  <RootLayout 
+    config={config} 
+    importMap={importMap}
+    serverFunction={undefined}
+  >
     {children}
   </RootLayout>
 )
