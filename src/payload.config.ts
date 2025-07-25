@@ -1,25 +1,25 @@
-import { buildConfig } from 'payload';
-import { postgresAdapter } from '@payloadcms/db-postgres';
-import { webpackBundler } from '@payloadcms/bundler-webpack';
-import path from 'path';
+// src/payload.config.ts
+import { buildConfig } from 'payload'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
+  // База даних з вашим реальним connection string
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI,
+      connectionString: process.env.DATABASE_URI || 'postgresql://70b9fcfc5e1f018378ef4868ac484ae25b8892a4aaa3e634332e6313f6c64dd0:sk_tKqIkG9IL5_8zraSpR4JO@db.prisma.io:5432/main?sslmode=require',
     },
   }),
+  
+  // Налаштування адмін панелі
   admin: {
-    user: 'users',
-    bundler: webpackBundler(),
+    user: 'users', // колекція користувачів
     meta: {
       titleSuffix: '- Admin Panel',
+      // Видаляємо favicon - це більше не підтримується в нових версіях
     },
   },
-  routes: {
-    admin: '/admin',
-  },
+  
+  // Колекції
   collections: [
     {
       slug: 'users',
@@ -59,6 +59,8 @@ export default buildConfig({
       ],
     },
   ],
+  
+  // Глобальні налаштування
   globals: [
     {
       slug: 'settings',
@@ -75,8 +77,12 @@ export default buildConfig({
       ],
     },
   ],
+  
+  // Налаштування TypeScript
   typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
+    outputFile: 'payload-types.ts',
   },
-  secret: process.env.PAYLOAD_SECRET,
-});
+  
+  // Ваш реальний секретний ключ
+  secret: process.env.PAYLOAD_SECRET || 'x7k9m3p8q2w5z1t4r6y0u2i8o4p7a9s3',
+})
