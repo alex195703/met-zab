@@ -1,4 +1,4 @@
-// src/payload.config.ts
+//  src/payload.config.ts
 import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 
