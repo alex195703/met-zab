@@ -11,7 +11,8 @@
     "vercel-build": "next build"
   },
   "dependencies": {
-      "@payloadcms/next": "^3.0.0",
+     "next": "^15.2.3", 
+    "@payloadcms/next": "^3.0.0",
     "payload": "^3.0.0",
     "@payloadcms/db-postgres": "^3.0.0",
     "@hookform/resolvers": "^5.0.1",
@@ -51,8 +52,7 @@
     "framer-motion": "^12.6.3",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.487.0",
-    "next": "^15.2.3",
-    "next-themes": "^0.4.6",
+       "next-themes": "^0.4.6",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
