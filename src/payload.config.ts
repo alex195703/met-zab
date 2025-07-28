@@ -1,5 +1,6 @@
 import { buildConfig } from 'payload';
 import { postgresAdapter } from '@payloadcms/db-postgres';
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 
 export default buildConfig({
   db: postgresAdapter({
@@ -7,6 +8,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL,
     },
   }),
+  editor: lexicalEditor({}),
   collections: [
     {
       slug: 'pages',
@@ -19,6 +21,7 @@ export default buildConfig({
         {
           name: 'content',
           type: 'richText',
+          editor: lexicalEditor({})
         }
       ]
     },
