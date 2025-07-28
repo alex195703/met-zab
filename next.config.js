@@ -8,21 +8,9 @@ const nextConfig = {
     );
     return config;
   },
-  
   serverExternalPackages: ['payload', '@payloadcms/next', '@payloadcms/db-postgres'],
-  
-  // Налаштування для Vercel
-  trailingSlash: false,
-  
-  // Переконуємось, що використовуємо правильну структуру файлів
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  
-  // Додаємо експліцитні налаштування для App Router
-  experimental: {
-    serverComponentsExternalPackages: ['payload', '@payloadcms/next', '@payloadcms/db-postgres']
-  }
 };
 
-// Тимчасово відключаємо withPayload для тестування
-export default nextConfig;
-// export default withPayload(nextConfig);
+import { withPayload } from '@payloadcms/next/withPayload';
+
+export default withPayload(nextConfig);
