@@ -13,6 +13,7 @@
 },
   "dependencies": {
     "@payloadcms/next": "3.49.0",
+     "@payloadcms/richtext-lexical": "^3.13.0",
     "payload": "^3.0.0",
     "@payloadcms/db-postgres": "^3.0.0",
     "payload-config": "./payload.config.ts",
