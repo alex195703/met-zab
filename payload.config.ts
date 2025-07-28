@@ -18,7 +18,7 @@ export default buildConfig({
         },
         {
           name: 'content',
-          type: 'textarea',  // замість richText
+          type: 'textarea',
         }
       ]
     },
