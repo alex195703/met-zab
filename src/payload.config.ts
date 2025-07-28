@@ -7,7 +7,43 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL,
     },
   }),
-  collections: ['pages', 'users', 'settings'],
+  collections: [
+    {
+      slug: 'pages',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'content',
+          type: 'richText',
+        }
+      ]
+    },
+    {
+      slug: 'users',
+      auth: true,
+      fields: [
+        {
+          name: 'email',
+          type: 'email',
+          required: true,
+        }
+      ]
+    },
+    {
+      slug: 'settings',
+      fields: [
+        {
+          name: 'siteName',
+          type: 'text',
+          required: true,
+        }
+      ]
+    }
+  ],
   admin: {
     autoLogin: {
       email: 'admin@example.com',
@@ -15,4 +51,8 @@ export default buildConfig({
       prefillOnly: true,
     },
   },
+  secret: process.env.PAYLOAD_SECRET || 'your-secret-here',
+  typescript: {
+    outputFile: 'payload-types.ts'
+  }
 });
