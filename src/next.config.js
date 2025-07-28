@@ -1,8 +1,7 @@
-import { withPayload } from '@payloadcms/next';
+const { withPayload } = require('@payloadcms/next');
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {};
 
-export default withPayload(nextConfig, {
+module.exports = withPayload(nextConfig, {
   configPath: './payload/config.ts', // Вказуємо шлях до конфігурації Payload
 });
