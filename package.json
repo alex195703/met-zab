@@ -8,6 +8,7 @@
   "build": "next build",
   "start": "next start",
   "lint": "next lint",
+    
   "vercel-build": "npm install --legacy-peer-deps --force && npm run generate:importmap && next build"
 },
   "dependencies": {
