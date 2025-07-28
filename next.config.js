@@ -1,5 +1,3 @@
-import { withPayload } from '@payloadcms/next/withPayload';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { webpack }) => {
@@ -18,6 +16,13 @@ const nextConfig = {
   
   // Переконуємось, що використовуємо правильну структуру файлів
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  
+  // Додаємо експліцитні налаштування для App Router
+  experimental: {
+    serverComponentsExternalPackages: ['payload', '@payloadcms/next', '@payloadcms/db-postgres']
+  }
 };
 
-export default withPayload(nextConfig);
+// Тимчасово відключаємо withPayload для тестування
+export default nextConfig;
+// export default withPayload(nextConfig);
