@@ -1,4 +1,4 @@
-import { withPayload } from '@payloadcms/next';
+import { withPayload } from '@payloadcms/next/config';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {};
