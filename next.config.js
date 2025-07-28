@@ -1,5 +1,3 @@
-import { withPayload } from '@payloadcms/next/withPayload';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { webpack }) => {
@@ -13,4 +11,11 @@ const nextConfig = {
   serverExternalPackages: ['payload', '@payloadcms/next', '@payloadcms/db-postgres'],
 };
 
-export default withPayload(nextConfig);
+// Спробуйте різні варіанти імпорту:
+try {
+  const { withPayload } = require('@payloadcms/next');
+  module.exports = withPayload(nextConfig);
+} catch (error) {
+  console.warn('withPayload not available, using default config');
+  module.exports = nextConfig;
+}
