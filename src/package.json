@@ -8,7 +8,8 @@
   "build": "next build",
   "start": "next start",
   "lint": "next lint",
-  "vercel-build": "npm install --legacy-peer-deps && next build"
+  "vercel-build": "npm install --legacy-peer-deps && next build",
+    "generate:importmap": "payload generate:importmap"
 },
   "dependencies": {
     "@payloadcms/next": "3.49.0",
