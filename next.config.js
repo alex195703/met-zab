@@ -7,8 +7,7 @@ const nextConfig = {
       })
     );
     return config;
-  },
-  serverExternalPackages: ['payload', '@payloadcms/next', '@payloadcms/db-postgres'],
+  }
 };
 
 export default nextConfig;
