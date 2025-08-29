@@ -15,10 +15,8 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-  "@/*": ["./*"],
-  "@/components/*": ["./met-zab/components/*"],
-  "@/ui/*": ["./met-zab/components/ui/*"]
-},
+      "@/*": ["./*"]
+    },
     "plugins": [
       {
         "name": "next"
