@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, BookOpen, Home, FileText, Database, Users } from "lucide-react";
+import { Menu, BookOpen, Home, FileText, Database, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -13,7 +13,8 @@ const navigationItems = [
   { name: "Контакти", href: "#contact", icon: Users },
 ];
 
-export function Navigation() {
+function Navigation() {
+
   console.log("Navigation component rendered");
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
