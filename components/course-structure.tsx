@@ -275,7 +275,7 @@ const courseData = [
   }
 ];
 
-export function CourseStructure() {
+export default function CourseStructure() {
   console.log("CourseStructure component rendered");
   const [openSections, setOpenSections] = useState<number[]>([1]);
 
