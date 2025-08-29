@@ -24,7 +24,7 @@ const quickLinks = [
   { name: "Репозитарій університету", url: "#" }
 ];
 
-export function CourseFooter() {
+export default function CourseFooter() {
   console.log("CourseFooter component rendered");
 
   return (
