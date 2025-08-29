@@ -8,4 +8,7 @@ const nextConfig = {
   },
 }
 
-export default withPayload(nextConfig)
+export default withPayload(nextConfig, {
+  // вказуєш шлях до свого payload.config.ts (або .js)
+  configPath: './payload.config.ts',
+})
