@@ -4,10 +4,24 @@ import { BookOpen, Users, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-export function CourseHero() {
+function CourseHero() {
   console.log("CourseHero component rendered");
-  
   const stats = [
+    { icon: BookOpen, label: "Лекцій", value: "10" },
+    { icon: Users, label: "Практичних занять", value: "10" },
+    { icon: Clock, label: "Розділів", value: "5" },
+    { icon: Award, label: "Кредитів ECTS", value: "4" },
+  ];
+
+  return (
+    <section data-macaly="hero-section" className="section-gradient min-h-[70vh] flex items-center justify-center py-20">
+      {/* твій JSX */}
+    </section>
+  );
+}
+
+export default CourseHero;
+
     { icon: BookOpen, label: "Лекцій", value: "10" },
     { icon: Users, label: "Практичних занять", value: "10" },
     { icon: Clock, label: "Розділів", value: "5" },
@@ -79,3 +93,4 @@ export function CourseHero() {
     </section>
   );
 }
+export default CourseHero;
