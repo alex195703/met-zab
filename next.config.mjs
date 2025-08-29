@@ -1,4 +1,4 @@
-import { withPayload } from '@payloadcms/next'
+import { withPayload } from '@payloadcms/next/config'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,6 +9,5 @@ const nextConfig = {
 }
 
 export default withPayload(nextConfig, {
-  // вказуєш шлях до свого payload.config.ts (або .js)
   configPath: './payload.config.ts',
 })
