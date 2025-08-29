@@ -62,7 +62,7 @@ const courseInfo = {
   assessment: "Поточний контроль + Підсумковий іспит"
 };
 
-export function CourseResources() {
+export default function CourseResources() {
   console.log("CourseResources component rendered");
 
   return (
