@@ -58,7 +58,7 @@ const schedule = [
   { week: "15", topic: "Академічна доброчесність", type: "practice" }
 ];
 
-export function CourseSyllabus() {
+export default function CourseSyllabus() {
   console.log("CourseSyllabus component rendered");
 
   return (
